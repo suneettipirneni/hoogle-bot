@@ -12,4 +12,5 @@ const client = new Client({
   await client.login(process.env['DISCORD_TOKEN']);
   await client.registerCommands(path.join(__dirname, 'commands'));
   client.registerAutocompleteHandlers(path.join(__dirname, 'autocomplete'));
+  client.onError = (_, error) => console.error(error);
 })();
