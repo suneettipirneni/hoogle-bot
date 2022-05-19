@@ -6,11 +6,9 @@ import { MessageEmbed } from 'discord.js';
 const docsTurndown = new TurndownService()
   .addRule('code', {
     filter: ['pre'],
-    replacement: (content, node, options) => {
-      return `\n\`\`\`haskell\n
+    replacement: (_, node) => `\n\`\`\`haskell\n
 ${node.textContent}
-\`\`\`\n`;
-    },
+\`\`\`\n`,
   })
   .addRule('inlineCode', {
     // @ts-expect-error unknown element
@@ -19,7 +17,7 @@ ${node.textContent}
   })
   .addRule('bold', {
     filter: ['h1', 'h2', 'h3', 'h4'],
-    replacement: (content, node) => {
+    replacement: (content) => {
       return `\n\n**${content}**\n\n`;
     },
   });
@@ -31,8 +29,14 @@ function generateEmbed(result: HoogleResult) {
     .setTitle(`\`${result.item}\``)
     .setURL(result.url)
     .addFields([
-      { name: 'Package', value: result.package.name ?? 'n/a' },
-      { name: 'Module', value: result.module.name ?? 'n/a' },
+      {
+        name: 'Package',
+        value: `[${result.package.name}](${result.package.url})` ?? 'n/a',
+      },
+      {
+        name: 'Module',
+        value: `[${result.module.name}](${result.module.url})` ?? 'n/a',
+      },
     ])
     .setDescription(docsMarkdown);
 }
