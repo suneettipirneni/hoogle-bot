@@ -1,7 +1,7 @@
 {
   "name": "hoogle-bot",
   "version": "1.0.0",
-  "description": "package_description",
+  "description": "A discord bot for searching hoogle",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -17,12 +17,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/suneettipirneni/node-typescript-template.git"
+    "url": "git+https://github.com/suneettipirneni/hoogle-bot.git"
   },
   "author": "Suneet Tipirneni",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/suneettipirneni/node-typescript-template/issues"
+    "url": "https://github.com/suneettipirneni/hoogle-bot/issues"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
@@ -30,7 +30,6 @@
       "eslint --fix"
     ]
   },
-  "homepage": "https://github.com/suneettipirneni/node-typescript-template#readme",
   "devDependencies": {
     "@babel/core": "^7.17.8",
     "@babel/preset-env": "^7.16.11",
