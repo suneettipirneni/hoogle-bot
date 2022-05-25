@@ -16,7 +16,7 @@ ${node.textContent}
     replacement: (_, node) => `\`${node.textContent}\``,
   })
   .addRule('bold', {
-    filter: ['h1', 'h2', 'h3', 'h4'],
+    filter: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
     replacement: (content) => {
       return `\n\n**${content}**\n\n`;
     },
